@@ -1,12 +1,13 @@
 ﻿using System;
+using CSharpVendor.Controllers;
 
 namespace CSharpVendor
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      new VendorController().Run();
     }
+  }
 }
