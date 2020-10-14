@@ -2,7 +2,7 @@ using CSharpVendor.Interfaces;
 
 namespace CSharpVendor.Models
 {
-  class ColdFood : IVendable
+  class ColdFood : IVendable, ITempSensitiveItems
   {
     public string Name { get; set; }
     public int Price { get; set; }

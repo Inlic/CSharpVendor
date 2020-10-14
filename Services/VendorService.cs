@@ -27,8 +27,13 @@ namespace CSharpVendor.Services
       var vendables = Vendables.FindAll(v => v.Type == type);
       if (index < vendables.Count && vendables[index].Amount > 0)
       {
+        if (vendables[index] is ITempSensitiveItems)
+        {
+          vendables[index].Amount -= 1;
+          return (vendables[index] as ITempSensitiveItems).Prepare() + "\nEnjoy your item";
+        }
         vendables[index].Amount -= 1;
-        return "Enjoy your item";
+        return "\nEnjoy your item";
       }
       return "Invalid Selection.";
     }
