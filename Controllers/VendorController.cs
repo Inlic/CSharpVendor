@@ -19,7 +19,7 @@ namespace CSharpVendor.Controllers
 
     private void GetUserInput()
     {
-      Console.WriteLine("Options: Snacks, Coffee, Hot food, Cold food");
+      Console.WriteLine("Options: Snacks, Coffee, Hot food, Cold food or Quit.");
       string input = Console.ReadLine().ToLower();
       Console.Clear();
       switch (input)
@@ -38,6 +38,10 @@ namespace CSharpVendor.Controllers
         case "cold food":
           BuyColdFood();
           break;
+        case "quit":
+          _Running = false;
+          Console.WriteLine("\nGoodbye");
+          break;
         default:
           Console.WriteLine("Invalid Command");
           break;
@@ -49,6 +53,7 @@ namespace CSharpVendor.Controllers
       Console.WriteLine(_Service.GetVendables("snacks"));
       Console.WriteLine("Enter a number to buy the item.");
       string inputStr = Console.ReadLine();
+      Console.Clear();
       if (int.TryParse(inputStr, out int index) && index > 0)
       {
         Console.WriteLine(_Service.BuyVendable("snacks", index - 1));
