@@ -1,10 +1,10 @@
 namespace CSharpVendor.Interfaces
 {
-  class IVendable
+  interface IVendable
   {
     string Name { get; set; }
-    int Price { get; }
-    string Type { get; }
+    int Price { get; set; }
+    string Type { get; set; }
     int Amount { get; set; }
 
   }
